@@ -107,13 +107,6 @@ For example, if you specify 10 in "Epoch" and specify 2 in "Save every N epochs"
 
 If you don't need to create an intermediate LoRA, set the value here to the same value as "Epoch".
 
-### Caption Extension
-
-If you have prepared a caption file for each image, specify the extension of the caption file here.
-
-If this is blank, the extension will be ".caption". If the extension of the caption file is ".txt", specify ".txt" here.
-
-If you don't have a caption file, you can ignore it.
 
 ### Mixed precision
 
@@ -157,15 +150,6 @@ Keeping it in the main memory saves VRAM space and speeds up, but you can't proc
 
 Default is on.
 
-### Cache latents to disk
-
-Similar to the Cache latents option, but checking this allows you to specify that compressed image data be saved to disk as temporary files.
-
-This temporary file can be reused even after restarting kohya_ss, so if you want to do LoRA learning with the same data many times, turning on this option will increase learning efficiency.
-
-However, if you turn this on, you will not be able to use augmentation and random crop other than flip_aug.
-
-Default is off.
 
 ### Learning rate:
 
@@ -211,12 +195,6 @@ In addition, "Adafactor", which adjusts the learning rate appropriately accordin
 ``DAdapt'' is an optimizer that adjusts the learning rate , and ``Lion'' is a relatively new optimizer , but it has not been fully verified yet. There is a report that "SGDNesterov" has good learning accuracy but slows down.
 
 The default is AdamW8bit. There is no problem basically as it is.
-
-### Optimizer extra arguments
-
-If you want more granularity for a given optimizer , write the command here.
-
-You can usually leave this field blank.
 
 ### Text Encoder learning rate
 Sets the learning rate for the text encoder . As I wrote earlier, the effect of additional training on text encoders affects the entire U-Net.
@@ -301,14 +279,6 @@ If your training images are all the same size, you can turn this option off, but
 
 Enlargement and reduction are performed while maintaining the aspect ratio of the image. If the aspect ratio is not the same as the standard size, the vertical or horizontal size of the image after scaling may exceed the standard size. For example, if the base size is 512x512 ( 1 aspect ratio ) and the image size is 1536x1024 ( 1.5 aspect ratio ), the image will be scaled down to 768x512 ( 1.5 aspect ratio remains).
 
-## Advanced Configuration
-After this are the options in the Advanced Configuration section.
-
-### Weights, Blocks, Conv
-
-These are the "learning weight" and "rank" settings for each block in U-Net. Selecting each tab will bring up the corresponding configuration screen.
-
-*These settings are for advanced users. If you have no preference, you can leave all fields blank.
 
 
 #### Weights: Down LR weights/Mid LR weights/Up LR weights
